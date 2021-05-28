@@ -1,7 +1,7 @@
                     ##### ARCHITECTURE ####
-LINES: 15 - 68 Dictate the basic information of needed to be programed from each API
-LINES: 80 -    Dictate the notes on how the information will be stored and used 
-
+LINES: 15 -  68 Dictate the basic information of needed to be programed from each API
+LINES: 80 - 111 Dictate the plan on how the software will be implemented
+LINES: 120 - 135 Dictate the Ideas for hardware implementation
 # Each segment is broken up by api usage with segment bridges that will include the API's that will be bridged between
                          API MAP
                          
@@ -109,6 +109,13 @@ though making it more difficult it actuall should cut out some time in the proce
 We will need to figure out how EXACTLY the tracks are analyzed by the system and make 
 changes accordingly..... Luckily with the access to cdjs we should be able to test it out on a 
 consistent enough basis that we should be able to hammer down a good and consistent use 
+
+
+
+
+
+
+
 
 TECH SPECS 
 For the initial development we will use a raspberypi 
