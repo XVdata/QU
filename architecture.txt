@@ -1,0 +1,138 @@
+                    ##### ARCHITECTURE ####
+LINES: 15 - 68 Dictate the basic information of needed to be programed from each API
+LINES: 80 -    Dictate the notes on how the information will be stored and used 
+
+# Each segment is broken up by api usage with segment bridges that will include the API's that will be bridged between
+                         API MAP
+                         
+                          Music
+                         /     \
+                        /       \
+                       /         \
+                      /           \      
+                 Payments------CDJ Analasys
+
+##BASICS
+
+Payments
+           DESIDE BETWEEN
+      Venmo
+      PayPal
+      https://developer.paypal.com/developer/applications
+  The Payment function needs to: 
+    Accept Money
+    Create and Show a Balance
+  BRIDGE:
+    Music API:
+      Purchase froms store cart
+    CDJ Analasys:
+      accept full payment after the track 
+      is analysed as already played
+            
+
+Music 
+
+          DECIDE BETWEEN
+    Beatport - this would be best due to royalty payments on tracks
+    Itunes
+  Search:
+    the music section needs to search for tracks from user input
+    add track to the cart
+    
+    give a base amount for the track
+    
+    send the purchased track through to the analysis api
+    
+    download the track to the hard drive
+  BRIDGE:
+    Payment API:
+      Accept payment  
+    Analasys API:
+      send to analasys 
+
+
+Analasys:
+  Accept downloaded tracks from music api
+  analyse tracks for:
+    BPM
+    Key
+  Return:
+    When tracks are played
+    send return information to payment 
+    
+  BRIDGE:
+    Music API:
+      needs to recieve tracks
+    Payments:
+      needs to return played information in /
+      to accept full payment 
+
+
+
+
+
+
+
+
+
+
+
+PLAN
+
+This project will heavily use the Class functions 
+    The Music API catagorize all of the tracks as objects 
+    
+    The best way to tackle the transfer of information will
+    be to simply use the objects provided 
+    these objects provide:
+      Key
+      BPM
+      number of plays
+      (for more details use)
+      https://api.beatport.com/v4/docs/my/downloads/
+Using Beatport API we should be able to give more than enough information 
+to the analasys side of the project.
+
+We will create a queue system for all of the tracks added each object will have:
+  Payment amount (user input)
+  the track name
+  the artist name
+  the track key in both standard and camelot system
+  the bpm
+  the genre
+  whether or not the track as been played (boolian expression)
+
+There is no specific Rekordbox API so a work around will need to be created. 
+we will need to export the files in the same standard that rekordbox would export. 
+since the use base is a usb to usb interface that would allow access them in a whole new light
+though making it more difficult it actuall should cut out some time in the process
+We will need to figure out how EXACTLY the tracks are analyzed by the system and make 
+changes accordingly..... Luckily with the access to cdjs we should be able to test it out on a 
+consistent enough basis that we should be able to hammer down a good and consistent use 
+
+TECH SPECS 
+For the initial development we will use a raspberypi 
+we can add a touchscreen to the system in order to allow 
+the perfect amount of user interfacing and comfort 
+ALONG WITH 
+along with all of the work so far the pi will need to be loaded to reload itself while the device isnt in use 
+in order to allow the CDJs to recognize that more information has been added to it the best option for this is:
+    a notification system that would prompt the user to acknowledge the new requests
+    a prompt asking if they would like to restart the program
+    (this way the device wont restart in the middle of a currently playing track)
+
+Making sure that the djs ability to play music wont be infringed is the absolute most important portion of this project
+
+### we could implement a system for a copy usb of the djs current playlist that would allow
+    QU to check the DJ's files for tracks saving the customer money 
+    (they wouldnt need to pay the royalty simply tip the dj)
+
+
+
+
+NOTES:
+This device is for the use as a suplement to djs not a replacement for 
+a normal setlist 
+    
+    
+  
